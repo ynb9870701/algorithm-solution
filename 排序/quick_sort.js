@@ -23,4 +23,4 @@ function quick_sort (arr) {
 }
 
 const arr = [5, 4, 3, 2, 1];
-console.log('quickSort1 ', quick_sort(arr));
+console.log('quick_sort', quick_sort(arr));
