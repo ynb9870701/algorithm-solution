@@ -22,5 +22,7 @@ function quick_sort (arr) {
     return quick_sort(left).concat(midValue, quick_sort(right))
 }
 
-const arr = [5, 4, 3, 2, 1];
-console.log('quick_sort', quick_sort(arr));
+const arr = [5, 4, 3, 2, 1]
+console.log('quick_sort', quick_sort(arr))
+
+module.exports = quick_sort
