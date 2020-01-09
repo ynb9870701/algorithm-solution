@@ -21,6 +21,26 @@
  * @param {number} n
  * @return {ListNode}
  */
+var reverseBetween = function(head, m, n) {
+    let dummy = new ListNode(null)
+    dummy.next = head
+    let tmpHead = dummy
+    // 走到m前一个结点
+    for (let i = 1; i < m; i++) {
+        tmpHead = tmpHead.next
+    }
+    let start = tmpHead.next
+    let tail = start.next
+    for (let i = 0; i < n - m; i++) {
+        start.next = tail.next
+        tail.next = tmpHead.next
+        tmpHead.next = tail
+        tail = start.next
+    }
+    return dummy.next
+};
+
+
 var reverseBetween = function (head, m, n) {
     let preHead = new ListNode(null)
     preHead.next = head
@@ -45,61 +65,3 @@ var reverseBetween = function (head, m, n) {
     tempHead.next = pre
     return preHead.next
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var reverseBetween = function(head, m, n) {
-//     if (!head) 
-//         return head
-//     let cur = head
-//     let start = head
-//     let pre = null
-//     let reversed = null
-//     let k = 0 // 链表初始长度
-//     let newHead = new ListNode(null)
-//     let res = newHead
-//     while (cur) {
-//         k++
-//         if (k < m) {
-//             res.next = cur
-//             res = res.next
-//             cur = cur.next
-//         } else if (k >= m && k <= n) {
-//             pre = cur
-//             cur = cur.next
-//             pre.next = reversed
-//             reversed = pre
-//             if (k == n) {
-//                 res.next = reversed
-//                 res = res.next
-//             }
-//         } else {
-//             while (res.next) {
-//                 res = res.next
-//             }
-//             res.next = cur
-//             break
-//         }
-//     }
-//     return newHead.next
-// };
-
